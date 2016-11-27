@@ -4,17 +4,26 @@ const app = choo()
 
 app.model({
   state: {
-    todos: [
-      { title: 'Buy milk' },
-      { title: 'Call mum' }
-    ]
+    todos: []
+  },
+  reducers: {
+    addTodo: (data, state) => {
+      const newTodos = state.todos.slice()
+      newTodos.push(data)
+      return { todos: newTodos }
+    }
   }
 })
 
 const view = (state, prev, send) => {
   return html`
     <div>
-      <h1>Todos</h1>
+      <form onsubmit=${(e) => {
+        send('addTodo', { title: e.target.children[0].value })
+        e.preventDefault()
+      }}>
+        <input type="text" placeholder="New item" id="title">
+      </form>
       <ul>
         ${state.todos.map((todo) => html`<li>${todo.title}</li>`)}
       </ul>
