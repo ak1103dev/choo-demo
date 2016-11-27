@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack ./index.js bundle.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --progress --colors",
+    "dev": "webpack --progress --colors --watch",
+    "tentryest": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ak1103dev",
   "license": "ISC",
