@@ -18,18 +18,20 @@ app.model({
 const view = (state, prev, send) => {
   return html`
     <div>
-      <form onsubmit=${(e) => {
-        const input = e.target.children[0]
-        send('addTodo', { title: input.value })
-        input.value = ''
-        e.preventDefault()
-      }}>
+      <form onsubmit=${onSubmit}>
         <input type="text" placeholder="New item" id="title">
       </form>
       <ul>
         ${state.todos.map((todo) => html`<li>${todo.title}</li>`)}
       </ul>
     </div>`
+
+  function onSubmit(e) {
+    const input = e.target.children[0]
+    send('addTodo', { title: input.value })
+    input.value = ''
+    e.preventDefault()
+  }
 }
 
 app.router((route) => [
