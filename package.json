@@ -1,0 +1,18 @@
+{
+  "name": "choo-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack ./index.js bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ak1103dev",
+  "license": "ISC",
+  "dependencies": {
+    "choo": "^3.3.0"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.3"
+  }
+}
